@@ -329,3 +329,7 @@ fastlane/test_output
 
 iOSInjectionProject/
 *.mlmodel
+
+*.exe
+*.map
+*.obj

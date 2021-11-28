@@ -1,0 +1,262 @@
+;http://morphett.info/turing/
+
+;Replace _ with f - first, s - second
+
+0 _ f r 1
+0 * * r 0
+
+1 _ s l 2
+1 * * r 1
+
+2 f * l find_max_number1
+2 * * l 2
+
+;Find max number
+
+find_max_number1 1 i r find_max_number2
+find_max_number1 0 o r find_max_number2
+find_max_number1 _ * r number1_is_over
+find_max_number1 * * l find_max_number1
+
+find_max_number2 1 i l find_max_number1
+find_max_number2 0 o l find_max_number1
+find_max_number2 s * * number2_is_over
+find_max_number2 * * r find_max_number2
+
+; "a" mean that 2 number is bigger, "b" - 1 number is bigger
+number1_is_over s a l check_if_length_is_similar
+number1_is_over a * l check_if_length_is_similar
+number1_is_over * * r number1_is_over
+number2_is_over _ * l type_b
+number2_is_over * * r number2_is_over
+type_b * b * refresh_numbers
+
+check_if_length_is_similar 1 * r move_to_the_end0
+check_if_length_is_similar 0 * r move_to_the_end0
+check_if_length_is_similar f * r length_is_similar
+check_if_length_is_similar * * l *
+
+move_to_the_end0 a * l refresh_numbers
+move_to_the_end0 b * l refresh_numbers
+move_to_the_end0 * * r *
+
+length_is_similar * * * move_to_the_start
+move_to_the_start _ * r compare_by_numbers
+move_to_the_start * * l *
+
+compare_by_numbers i 1 r compare_by_numbers1
+compare_by_numbers o 0 r compare_by_numbers0
+compare_by_numbers * * r *
+
+compare_by_numbers1 f * r compare_by_numbers12
+compare_by_numbers1 * * r *
+
+compare_by_numbers0 f * r compare_by_numbers02
+compare_by_numbers0 * * r compare_by_numbers02
+
+compare_by_numbers12 i 1 * move_to_the_start
+compare_by_numbers02 o 0 * move_to_the_start
+
+compare_by_numbers12 f * r *
+compare_by_numbers02 f * r *
+
+compare_by_numbers12 o 0 * number2_is_over
+compare_by_numbers02 i 1 * number1_is_over
+
+compare_by_numbers12 * * r *
+compare_by_numbers02 * * r *
+
+refresh_numbers i 1 l *
+refresh_numbers o 0 l *
+refresh_numbers _ * r move_to_end
+refresh_numbers * * l *
+
+move_to_end a * * put_a_1
+move_to_end b * * put_b_1
+move_to_end * * r *
+
+put_a_1 * a r put_a_2
+put_a_2 * a r put_a_3
+put_a_3 * a r put_a_4
+put_a_4 * a * move_to_f
+
+put_b_1 * b r put_b_2
+put_b_2 * b r put_b_3
+put_b_3 * b r put_b_4
+put_b_4 * b * move_to_blank
+
+move_to_f f * r push_number_to_right
+move_to_f * * l move_to_f
+
+push_number_to_right 1 i r push_1_to_right
+push_number_to_right 0 o r push_0_to_right
+push_number_to_right a * * push_number_to_right_second
+push_number_to_right b * * push_number_to_right_second
+push_number_to_right_second a * * add_letter_at_the_end
+push_number_to_right_second b * * add_letter_at_the_end
+push_number_to_right_second * * * move_to_start1
+push_number_to_right f * * add_letter_at_the_end
+push_number_to_right * * r *
+
+push_1_to_right _ j * move_left_to_letter
+push_0_to_right _ c * move_left_to_letter
+push_1_to_right * * r *
+push_0_to_right * * r *
+
+move_left_to_letter a * * move_to_f
+move_left_to_letter b * * move_to_blank
+move_left_to_letter * * l *
+
+move_to_blank _ * r push_number_to_right
+move_to_blank * * l *
+
+move_to_start1 _ * * push_number_to_right
+move_to_start1 * * l *
+
+add_letter_at_the_end _ x * push_another_number
+add_letter_at_the_end * * r add_letter_at_the_end
+
+push_another_number _ * r push_another_number1
+push_another_number * * l *
+
+push_another_number1 1 i r push_another_number11
+push_another_number1 0 o r push_another_number10
+push_another_number1 _ * * refresh_before_division
+push_another_number1 * * r *
+
+push_another_number10 _ c * push_another_number
+push_another_number11 _ j * push_another_number
+push_another_number10 * * r push_another_number10
+push_another_number11 * * r push_another_number11
+
+refresh_before_division a _ l refresh_before_division1
+refresh_before_division b _ l refresh_before_division1
+refresh_before_division j 1 l *
+refresh_before_division c 0 l *
+refresh_before_division * * l *
+
+refresh_before_division1 * _ l refresh_before_division2
+refresh_before_division2 * _ l move_to_x
+
+move_to_x x _ r q1
+move_to_x * * r *
+
+q1 1 u r q2 
+q1 0 v r q6 
+q1 # # l q8
+q2 * * r q2 
+q2 _ # r q3 
+q2 # # r q3 
+q3 * * r q3 
+q3 _ 1 l q4 
+q4 * * l q4 
+q4 # # l q5 
+q5 * * l q5 
+q5 u u r q1 
+q5 v v r q1 
+q6 * * r q6 
+q6 _ # r q7 
+q6 # # r q7 
+q7 * * r q7 
+q7 _ 0 l q4 
+q8 v 0 l q8 
+q8 u 1 l q9 
+q9 u 0 l q9 
+q9 v 1 l q9 
+q9 _ _ l q10 
+q10 * * l q10 
+q10 _ _ r q11 
+q11 * * r q11 
+q11 _ _ r q12 
+q12 * * r q12 
+q12 # # l q13 
+q13 0 u l q14 
+q13 _ _ r q19
+q13 1 v l q15 
+q13 v v l q13 
+q13 u u l q13 
+q14 * * l q14 
+q14 _ _ l q36 
+q36 * * l q36 
+q36 _ _ r q11 
+q36 1 y r q11 
+q36 0 x r q11 
+q19 u 0 r q19 
+q19 v 1 r q19 
+q19 # # l q37 
+q20 x 0 l q20 
+q20 y 1 l q20 
+q20 * * l q20 
+q20 _ _ l q39 
+q39 1 0 l q39 
+q39 _ 1 r q40 
+q39 0 1 r q40 
+q40 * * r q40 
+q40 _ _ r q41 
+q41 _ _ r q41 
+q41 * _ r q22 
+q15 * * l q15 
+q15 _ _ l q16 
+q16 * * l q16 
+q16 1 0 l q16 
+q16 _ 1 * q17
+q16 0 1 * q17 
+q17 * * r q17 
+q17 _ _ l q18 
+q17 x x l q18 
+q17 y y l q18 
+q18 1 y r q11 
+q18 0 x r q11 
+q37 * * l q37 
+q37 _ _ l q20 
+q22 _ _ r q35 
+q22 1 y r q23 
+q22 0 x r q27
+q23 * * r q23 
+q23 # # r q24 
+q24 * * r q24 
+q24 1 y l q25 
+q24 _ _ l q29 
+q24 0 0 l q29 
+q25 * * l q25 
+q25 _ _ l q26 
+q26 * * l q26 
+q26 x x r q22 
+q26 y y r q22 
+q27 * * r q27 
+q27 # # r q28 
+q28 * * r q28 
+q28 0 x l q25
+q28 _ _ l q29 
+q28 1 1 r q32 
+q29 x 0 l q29 
+q29 y 1 l q29 
+q29 # # l q30 
+q30 * * l q30 
+q30 _ _ l q31 
+q31 x 0 l q31 
+q31 y 1 l q31 
+q31 _ _ r q11 
+q31 0 0 l q31 
+q31 1 1 l q31 
+q32 * * r q32 
+q32 _ _ l q33 
+q33 * _ l q33 
+q33 _ _ l q34 
+q34 x 0 l q34 
+q34 y 1 l q34 
+q34 _ _ l refresh_end 
+q34 * * l q34 
+q35 * * r q35 
+q35 _ _ l q29
+
+refresh_end _ * l refresh_end1
+refresh_end * * l *
+
+refresh_end1 _ * r halt
+refresh_end1 i 1 l *
+refresh_end1 o 0 l *
+refresh_end1 f _ l *
+refresh_end1 a _ l *
+refresh_end1 b _ l *
+refresh_end1 * * l *

@@ -11,7 +11,18 @@ class GameViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Clobber game"
+        title = .title
+        
+        if let navigationBar = navigationController?.navigationBar {
+            navigationBar.isTranslucent = false
+            navigationBar.standardAppearance.titleTextAttributes = [
+                NSAttributedString.Key.foregroundColor: UIColor.textColor,
+                NSAttributedString.Key.font: 24.boldFont
+            ]
+            navigationBar.standardAppearance.shadowColor = nil
+            navigationBar.standardAppearance.backgroundColor = .mainColor
+            navigationBar.scrollEdgeAppearance = navigationBar.standardAppearance
+        }
     }
 }
 

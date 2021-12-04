@@ -13,12 +13,9 @@
 		D29C3838275BC9BA00AD599C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D29C3836275BC9BA00AD599C /* Main.storyboard */; };
 		D29C383A275BC9BC00AD599C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D29C3839275BC9BC00AD599C /* Assets.xcassets */; };
 		D29C383D275BC9BC00AD599C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D29C383B275BC9BC00AD599C /* LaunchScreen.storyboard */; };
-		D29C3845275BD7B800AD599C /* AppFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C3844275BD7B800AD599C /* AppFont.swift */; };
-		D29C3847275BD91B00AD599C /* HexColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C3846275BD91B00AD599C /* HexColor.swift */; };
-		D29C3849275BD96000AD599C /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C3848275BD96000AD599C /* UIColor.swift */; };
-		D29C384B275BD9D900AD599C /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C384A275BD9D900AD599C /* String.swift */; };
 		D29C3850275BF8CC00AD599C /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C384F275BF8CC00AD599C /* GameScene.swift */; };
 		D29C3852275C029F00AD599C /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C3851275C029F00AD599C /* Helpers.swift */; };
+		D29C3854275C0FFD00AD599C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C3853275C0FFD00AD599C /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,12 +27,9 @@
 		D29C3839275BC9BC00AD599C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D29C383C275BC9BC00AD599C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D29C383E275BC9BC00AD599C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D29C3844275BD7B800AD599C /* AppFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFont.swift; sourceTree = "<group>"; };
-		D29C3846275BD91B00AD599C /* HexColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexColor.swift; sourceTree = "<group>"; };
-		D29C3848275BD96000AD599C /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
-		D29C384A275BD9D900AD599C /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		D29C384F275BF8CC00AD599C /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		D29C3851275C029F00AD599C /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		D29C3853275C0FFD00AD599C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,11 +76,8 @@
 		D29C384C275BDA4A00AD599C /* SupportFiles */ = {
 			isa = PBXGroup;
 			children = (
-				D29C3846275BD91B00AD599C /* HexColor.swift */,
-				D29C3844275BD7B800AD599C /* AppFont.swift */,
-				D29C3848275BD96000AD599C /* UIColor.swift */,
-				D29C384A275BD9D900AD599C /* String.swift */,
 				D29C3851275C029F00AD599C /* Helpers.swift */,
+				D29C3853275C0FFD00AD599C /* Constants.swift */,
 			);
 			path = SupportFiles;
 			sourceTree = "<group>";
@@ -180,14 +171,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D29C3845275BD7B800AD599C /* AppFont.swift in Sources */,
-				D29C3849275BD96000AD599C /* UIColor.swift in Sources */,
 				D29C3850275BF8CC00AD599C /* GameScene.swift in Sources */,
 				D29C3835275BC9BA00AD599C /* GameViewController.swift in Sources */,
 				D29C3852275C029F00AD599C /* Helpers.swift in Sources */,
-				D29C3847275BD91B00AD599C /* HexColor.swift in Sources */,
+				D29C3854275C0FFD00AD599C /* Constants.swift in Sources */,
 				D29C3831275BC9BA00AD599C /* AppDelegate.swift in Sources */,
-				D29C384B275BD9D900AD599C /* String.swift in Sources */,
 				D29C3833275BC9BA00AD599C /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

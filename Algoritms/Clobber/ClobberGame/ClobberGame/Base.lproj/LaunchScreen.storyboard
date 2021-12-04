@@ -1,8 +1,10 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -11,15 +13,54 @@
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UNy-RJ-8FB">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="Qs2-Es-Rb5">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch-screen-logo" translatesAutoresizingMaskIntoConstraints="NO" id="Qyc-HL-d4S">
+                                        <rect key="frame" x="82" y="323" width="250" height="250"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="250" id="BJF-cf-yjm"/>
+                                            <constraint firstAttribute="width" constant="250" id="bzc-gt-pEf"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="Qs2-Es-Rb5" firstAttribute="leading" secondItem="UNy-RJ-8FB" secondAttribute="leading" id="Lsw-yU-zRb"/>
+                                    <constraint firstItem="Qyc-HL-d4S" firstAttribute="centerX" secondItem="UNy-RJ-8FB" secondAttribute="centerX" id="d88-NP-1YD"/>
+                                    <constraint firstAttribute="bottom" secondItem="Qs2-Es-Rb5" secondAttribute="bottom" id="fDp-JR-9Xb"/>
+                                    <constraint firstItem="Qyc-HL-d4S" firstAttribute="centerY" secondItem="UNy-RJ-8FB" secondAttribute="centerY" id="iax-E5-grv"/>
+                                    <constraint firstAttribute="trailing" secondItem="Qs2-Es-Rb5" secondAttribute="trailing" id="mBO-7B-aOv"/>
+                                    <constraint firstItem="Qs2-Es-Rb5" firstAttribute="top" secondItem="UNy-RJ-8FB" secondAttribute="top" id="spB-I1-BSX"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="UNy-RJ-8FB" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="4Nx-DI-C3L"/>
+                            <constraint firstItem="UNy-RJ-8FB" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="A3x-Fc-iOo"/>
+                            <constraint firstAttribute="bottom" secondItem="UNy-RJ-8FB" secondAttribute="bottom" id="IYH-Ba-EXS"/>
+                            <constraint firstItem="UNy-RJ-8FB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="PiT-yg-Klo"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52.173913043478265" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="bg" width="2000" height="2000"/>
+        <image name="launch-screen-logo" width="600" height="600"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

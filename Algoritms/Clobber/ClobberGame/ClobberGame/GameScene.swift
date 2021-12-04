@@ -22,13 +22,29 @@ class GameScene: SKScene {
     }
     
     override func didMove(to view: SKView) {
+        createPositionDots()
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        print("touchesMoved: \(touches.first?.location(in: self))")
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        print("touchesEnded: \(touches.first?.location(in: self))")
+    }
+}
+
+private extension GameScene {
+    
+    func createPositionDots() {
+        let Y = Int(size.height/4)
+        for y in stride(from: -Y+Y/4, through: Y+Y/4-Y/3, by: Y/3) {
+            let X = Int(size.width/3)
+            for x in stride(from: -X, through: X, by: X/2) {
+                addChild(with(SKShapeNode(circleOfRadius: 7)) {
+                    $0.fillColor = .mediumRedViolet
+                    $0.zPosition = 1
+                    $0.position = CGPoint(x: x, y: y)
+                })
+            }
+        }
     }
 }

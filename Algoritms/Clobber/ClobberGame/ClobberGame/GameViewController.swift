@@ -6,8 +6,12 @@
 //
 
 import UIKit
+import SpriteKit
 
 class GameViewController: UIViewController {
+    
+    @IBOutlet weak var gameView: UIView!
+    private lazy var scene = GameScene()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,14 +28,13 @@ class GameViewController: UIViewController {
             navigationBar.scrollEdgeAppearance = navigationBar.standardAppearance
         }
         
-        let bgImage: UIImageView = .init(image: .init(named: "bg-blurred"))
-        view.addSubview(bgImage)
-        NSLayoutConstraint.activate([
-            bgImage.topAnchor.constraint(equalTo: view.topAnchor),
-            bgImage.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            bgImage.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            bgImage.trailingAnchor.constraint(equalTo: view.trailingAnchor)
-        ])
+        let sceneView = SKView(frame: gameView.frame)
+        sceneView.ignoresSiblingOrder = false
+        sceneView.backgroundColor = .clear
+        gameView.addSubview(sceneView)
+
+        scene.setUp(size: gameView.bounds.size)
+        sceneView.presentScene(scene)
     }
 }
 

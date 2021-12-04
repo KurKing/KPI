@@ -15,10 +15,36 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EHA-RA-AzZ">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg-blurred" translatesAutoresizingMaskIntoConstraints="NO" id="Xtp-Aj-lPe">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="Xtp-Aj-lPe" firstAttribute="top" secondItem="EHA-RA-AzZ" secondAttribute="top" id="Pwo-bb-poY"/>
+                                    <constraint firstItem="Xtp-Aj-lPe" firstAttribute="leading" secondItem="EHA-RA-AzZ" secondAttribute="leading" id="TrC-Ku-Kae"/>
+                                    <constraint firstAttribute="bottom" secondItem="Xtp-Aj-lPe" secondAttribute="bottom" id="etp-8R-XEb"/>
+                                    <constraint firstAttribute="trailing" secondItem="Xtp-Aj-lPe" secondAttribute="trailing" id="ra5-uu-1L5"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="EHA-RA-AzZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="8aL-Q1-edF"/>
+                            <constraint firstItem="EHA-RA-AzZ" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="BCB-U6-u1L"/>
+                            <constraint firstAttribute="bottom" secondItem="EHA-RA-AzZ" secondAttribute="bottom" id="qf4-vu-Nbs"/>
+                            <constraint firstItem="EHA-RA-AzZ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="tKv-P9-Apk"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="c1m-fx-vci"/>
+                    <connections>
+                        <outlet property="gameView" destination="EHA-RA-AzZ" id="HQX-fh-LwN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -47,6 +73,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="bg-blurred" width="2000" height="2000"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

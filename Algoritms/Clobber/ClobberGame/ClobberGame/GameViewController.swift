@@ -11,7 +11,7 @@ import SpriteKit
 class GameViewController: UIViewController {
     
     @IBOutlet weak var gameView: UIView!
-    private lazy var scene = GameScene()
+    private var scene: GameScene!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,13 +28,23 @@ class GameViewController: UIViewController {
             navigationBar.scrollEdgeAppearance = navigationBar.standardAppearance
         }
         
-        let sceneView = SKView(frame: gameView.frame)
-        sceneView.ignoresSiblingOrder = false
-        sceneView.backgroundColor = .clear
+        let sceneView = with(SKView()) {
+            $0.ignoresSiblingOrder = false
+            $0.backgroundColor = .clear
+            $0.translatesAutoresizingMaskIntoConstraints = false
+            $0.clipsToBounds = true
+        }
         gameView.addSubview(sceneView)
+        NSLayoutConstraint.activate([
+            sceneView.topAnchor.constraint(equalTo: gameView.topAnchor),
+            sceneView.bottomAnchor.constraint(equalTo: gameView.bottomAnchor),
+            sceneView.leftAnchor.constraint(equalTo: gameView.leftAnchor),
+            sceneView.rightAnchor.constraint(equalTo: gameView.rightAnchor)
+        ])
 
-        scene.setUp(size: gameView.bounds.size)
+        view.layoutIfNeeded()
+        
+        scene = GameScene(size: sceneView.bounds.size)
         sceneView.presentScene(scene)
     }
 }
-

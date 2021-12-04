@@ -18,6 +18,7 @@
 		D29C3849275BD96000AD599C /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C3848275BD96000AD599C /* UIColor.swift */; };
 		D29C384B275BD9D900AD599C /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C384A275BD9D900AD599C /* String.swift */; };
 		D29C3850275BF8CC00AD599C /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C384F275BF8CC00AD599C /* GameScene.swift */; };
+		D29C3852275C029F00AD599C /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C3851275C029F00AD599C /* Helpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		D29C3848275BD96000AD599C /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		D29C384A275BD9D900AD599C /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		D29C384F275BF8CC00AD599C /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		D29C3851275C029F00AD599C /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 				D29C3844275BD7B800AD599C /* AppFont.swift */,
 				D29C3848275BD96000AD599C /* UIColor.swift */,
 				D29C384A275BD9D900AD599C /* String.swift */,
+				D29C3851275C029F00AD599C /* Helpers.swift */,
 			);
 			path = SupportFiles;
 			sourceTree = "<group>";
@@ -181,6 +184,7 @@
 				D29C3849275BD96000AD599C /* UIColor.swift in Sources */,
 				D29C3850275BF8CC00AD599C /* GameScene.swift in Sources */,
 				D29C3835275BC9BA00AD599C /* GameViewController.swift in Sources */,
+				D29C3852275C029F00AD599C /* Helpers.swift in Sources */,
 				D29C3847275BD91B00AD599C /* HexColor.swift in Sources */,
 				D29C3831275BC9BA00AD599C /* AppDelegate.swift in Sources */,
 				D29C384B275BD9D900AD599C /* String.swift in Sources */,

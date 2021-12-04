@@ -10,11 +10,15 @@ import GameplayKit
 
 class GameScene: SKScene {
     
-    func setUp(size: CGSize) {
-        self.size = size
+    override init(size: CGSize) {
+        super.init(size: size)
         scaleMode = .aspectFill
         backgroundColor = .clear
         anchorPoint = CGPoint(x: 0.5, y: 0.5)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     override func didMove(to view: SKView) {

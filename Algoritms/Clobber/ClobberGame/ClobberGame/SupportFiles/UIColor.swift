@@ -9,8 +9,12 @@ import UIKit
 
 extension UIColor {
     
-    static var mainColor: UIColor {
+    static var royalBlue: UIColor {
         0x6540F5.hexColor
+    }
+    
+    static var mediumRedViolet: UIColor {
+        0xa02ca0.hexColor
     }
     
     static var textColor: UIColor {

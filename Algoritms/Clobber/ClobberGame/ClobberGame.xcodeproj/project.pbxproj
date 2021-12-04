@@ -68,6 +68,7 @@
 				D29C384D275BDA5C00AD599C /* App */,
 				D29C384C275BDA4A00AD599C /* SupportFiles */,
 				D29C384E275BDA6B00AD599C /* View */,
+				D29C3839275BC9BC00AD599C /* Assets.xcassets */,
 				D29C383E275BC9BC00AD599C /* Info.plist */,
 			);
 			path = ClobberGame;
@@ -76,7 +77,6 @@
 		D29C384C275BDA4A00AD599C /* SupportFiles */ = {
 			isa = PBXGroup;
 			children = (
-				D29C3839275BC9BC00AD599C /* Assets.xcassets */,
 				D29C3846275BD91B00AD599C /* HexColor.swift */,
 				D29C3844275BD7B800AD599C /* AppFont.swift */,
 				D29C3848275BD96000AD599C /* UIColor.swift */,

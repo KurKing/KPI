@@ -20,9 +20,18 @@ class GameViewController: UIViewController {
                 NSAttributedString.Key.font: 24.boldFont
             ]
             navigationBar.standardAppearance.shadowColor = nil
-            navigationBar.standardAppearance.backgroundColor = .mainColor
+            navigationBar.standardAppearance.backgroundColor = .mediumRedViolet
             navigationBar.scrollEdgeAppearance = navigationBar.standardAppearance
         }
+        
+        let bgImage: UIImageView = .init(image: .init(named: "bg-blurred"))
+        view.addSubview(bgImage)
+        NSLayoutConstraint.activate([
+            bgImage.topAnchor.constraint(equalTo: view.topAnchor),
+            bgImage.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            bgImage.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            bgImage.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+        ])
     }
 }
 

@@ -45,8 +45,12 @@ class GameScene: SKScene {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        selectedChecker = checkersNodes.first
-        selectedChecker?.zPosition = 3
+        if let location = touches.first?.location(in: self), selectedChecker == nil {
+            selectedChecker = checkersNodes.min(by: {
+                $0.viewPosition.length(to: location) < $1.viewPosition.length(to: location)
+            })
+            selectedChecker?.zPosition = 3
+        }
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {

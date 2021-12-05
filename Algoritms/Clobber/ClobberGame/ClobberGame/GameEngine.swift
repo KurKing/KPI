@@ -27,7 +27,11 @@ class GameEngine {
         }
         self.checkersPositions = checkersPositions
     }
-    
+}
+
+// MARK: - GameLogic
+
+extension GameEngine {
     func touchBegan(location: CGPoint) {
         if selectedChecker == nil {
             selectedChecker = nearestChecker(to: location)
@@ -60,33 +64,6 @@ class GameEngine {
         selectedChecker?.moveToSelfPosition()
         selectedChecker?.zPosition = 2
         selectedChecker = nil
-    }
-}
-
-// MARK: - Utils
-
-extension GameEngine {
-
-    func normalize(target: CGFloat, current: CGFloat, maxStep: CGFloat) -> CGFloat {
-        if target < current - maxStep {
-            return current - maxStep
-        }
-        if target > current + maxStep {
-            return current + maxStep
-        }
-        return target
-    }
-    
-    func nearestChecker(to location: CGPoint) -> Checker? {
-        return checkersNodes.min(by: {
-            $0.viewPosition.length(to: location) < $1.viewPosition.length(to: location)
-        })
-    }
-    
-    func isAbleToSwap(_ first: Checker, with second: Checker) -> Bool {
-        return (first.gamePosition.x == second.gamePosition.x || first.gamePosition.y == second.gamePosition.y)
-        && first.position.length(to: second.viewPosition) < CGSize.checkerSize.width
-        && first.gameColor != second.gameColor
     }
 }
 
@@ -125,5 +102,32 @@ extension GameEngine {
             checkersNodes.append(node)
         }
         return checkersNodes
+    }
+}
+
+// MARK: - Utils
+
+private extension GameEngine {
+
+    func normalize(target: CGFloat, current: CGFloat, maxStep: CGFloat) -> CGFloat {
+        if target < current - maxStep {
+            return current - maxStep
+        }
+        if target > current + maxStep {
+            return current + maxStep
+        }
+        return target
+    }
+    
+    func nearestChecker(to location: CGPoint) -> Checker? {
+        return checkersNodes.min(by: {
+            $0.viewPosition.length(to: location) < $1.viewPosition.length(to: location)
+        })
+    }
+    
+    func isAbleToSwap(_ first: Checker, with second: Checker) -> Bool {
+        return (first.gamePosition.x == second.gamePosition.x || first.gamePosition.y == second.gamePosition.y)
+        && first.position.length(to: second.viewPosition) < CGSize.checkerSize.width
+        && first.gameColor != second.gameColor
     }
 }

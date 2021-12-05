@@ -46,9 +46,7 @@ class GameScene: SKScene {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let location = touches.first?.location(in: self), selectedChecker == nil {
-            selectedChecker = checkersNodes.min(by: {
-                $0.viewPosition.length(to: location) < $1.viewPosition.length(to: location)
-            })
+            selectedChecker = nearestChecker(to: location)
             selectedChecker?.zPosition = 3
         }
     }
@@ -65,13 +63,48 @@ class GameScene: SKScene {
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let selectedChecker = selectedChecker {
-            selectedChecker.moveToSelfPosition()
-            selectedChecker.zPosition = 2
-            self.selectedChecker = nil
+        if let selectedChecker = selectedChecker,
+           let touchLocation = touches.first?.location(in: self),
+           let nearestChecker = nearestChecker(to: touchLocation),
+           selectedChecker.gamePosition.x == nearestChecker.gamePosition.x || selectedChecker.gamePosition.y == nearestChecker.gamePosition.y,
+           selectedChecker.position.length(to: nearestChecker.viewPosition) < CGSize.checkerSize.width,
+           selectedChecker.gameColor != nearestChecker.gameColor {
+            
+            selectedChecker.move(to: nearestChecker.viewPosition)
+            selectedChecker.viewPosition = nearestChecker.viewPosition
+            selectedChecker.gamePosition = nearestChecker.gamePosition
+            nearestChecker.removeFromParent()
+            checkersNodes.removeAll(where: { $0 == nearestChecker })
         }
+        
+        selectedChecker?.moveToSelfPosition()
+        selectedChecker?.zPosition = 2
+        selectedChecker = nil
     }
 }
+
+// MARK: - Utils
+
+private extension GameScene {
+
+    func normalize(target: CGFloat, current: CGFloat, maxStep: CGFloat) -> CGFloat {
+        if target < current - maxStep {
+            return current - maxStep
+        }
+        if target > current + maxStep {
+            return current + maxStep
+        }
+        return target
+    }
+    
+    func nearestChecker(to location: CGPoint) -> Checker? {
+        return checkersNodes.min(by: {
+            $0.viewPosition.length(to: location) < $1.viewPosition.length(to: location)
+        })
+    }
+}
+
+// MARK: - Creation
 
 private extension GameScene {
     
@@ -86,23 +119,21 @@ private extension GameScene {
     }
     
     func createCheckers() {
+        var gamePosition = CGPoint.zero
         for (index, position) in checkersPositions.enumerated() {
-            let node = with(Checker(index: index, viewPosition: position, gamePosition: .zero), setup: {
+            let node = with(Checker(index: index, viewPosition: position, gamePosition: gamePosition), setup: {
                 $0.name = "\(index)-\($0.gameColor.rawValue)"
                 $0.zPosition = 2
             })
+            
+            gamePosition.x += 1
+            if (gamePosition.x > 4) {
+                gamePosition.y += 1
+                gamePosition.x -= 5
+            }
+            
             addChild(node)
             checkersNodes.append(node)
         }
-    }
-    
-    func normalize(target: CGFloat, current: CGFloat, maxStep: CGFloat) -> CGFloat {
-        if target < current - maxStep {
-            return current - maxStep
-        }
-        if target > current + maxStep {
-            return current + maxStep
-        }
-        return target
     }
 }

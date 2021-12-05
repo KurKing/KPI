@@ -29,3 +29,23 @@ extension String {
     }
 }
 
+extension Double {
+    
+    static var checkerSpeed: Double {
+        800
+    }
+}
+
+extension CGSize {
+    
+    static var checkerSize: CGSize {
+        40.size
+    }
+}
+
+extension CGFloat {
+    
+    static var dotRadius: CGFloat {
+        7
+    }
+}

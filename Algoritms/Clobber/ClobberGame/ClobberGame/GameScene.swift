@@ -11,19 +11,24 @@ import GameplayKit
 class GameScene: SKScene {
     
     let checkersPositions: [CGPoint]
+    let xStep: Int
+    let yStep: Int
+    var checkersNodes = [Checker]()
+    var selectedChecker: Checker? = nil
     
     override init(size: CGSize) {
         var checkersPositions = [CGPoint]()
-        let Y = Int(size.height/4)
-        for y in stride(from: -Y+Y/4, through: Y+Y/4-Y/3, by: Y/3) {
-            let X = Int(size.width/3)
-            for x in stride(from: -X, through: X, by: X/2) {
+        xStep = Int(size.width)/3
+        yStep = Int(size.height)/4
+        for y in stride(from: -yStep+yStep/4, through: yStep+yStep/4-yStep/3, by: yStep/3) {
+            for x in stride(from: -xStep, through: xStep, by: xStep/2) {
                 checkersPositions.append(CGPoint.init(x: x, y: y))
             }
         }
         self.checkersPositions = checkersPositions
         
         super.init(size: size)
+        isPaused = true
         scaleMode = .aspectFill
         backgroundColor = .clear
         anchorPoint = CGPoint(x: 0.5, y: 0.5)
@@ -36,12 +41,31 @@ class GameScene: SKScene {
     override func didMove(to view: SKView) {
         createPositionDots()
         createCheckers()
+        isPaused = false
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        selectedChecker = checkersNodes.first
+        selectedChecker?.zPosition = 3
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if let location = touches.first?.location(in: self),
+           let checkerToMove = selectedChecker {
+            
+            checkerToMove.move(to: CGPoint(
+                x: normalize(target: location.x, current: checkerToMove.viewPosition.x, maxStep: CGFloat(xStep/2)),
+                y: normalize(target: location.y, current: checkerToMove.viewPosition.y, maxStep: CGFloat(yStep/3))
+            ))
+        }
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if let selectedChecker = selectedChecker {
+            selectedChecker.moveToSelfPosition()
+            selectedChecker.zPosition = 2
+            self.selectedChecker = nil
+        }
     }
 }
 
@@ -49,7 +73,7 @@ private extension GameScene {
     
     func createPositionDots() {
         for position in checkersPositions {
-            addChild(with(SKShapeNode(circleOfRadius: 7)) {
+            addChild(with(SKShapeNode(circleOfRadius: .dotRadius)) {
                 $0.fillColor = .mediumRedViolet
                 $0.zPosition = 1
                 $0.position = position
@@ -59,13 +83,22 @@ private extension GameScene {
     
     func createCheckers() {
         for (index, position) in checkersPositions.enumerated() {
-            let colorName = "\(index % 2 == 0 ? "black" : "white")-checker"
-
-            addChild(with(SKSpriteNode(texture: .init(imageNamed: colorName), color: .clear, size: 40.size), setup: {
-                $0.name = colorName
-                $0.position = position
+            let node = with(Checker(index: index, viewPosition: position, gamePosition: .zero), setup: {
+                $0.name = "\(index)-\($0.gameColor.rawValue)"
                 $0.zPosition = 2
-            }))
+            })
+            addChild(node)
+            checkersNodes.append(node)
         }
+    }
+    
+    func normalize(target: CGFloat, current: CGFloat, maxStep: CGFloat) -> CGFloat {
+        if target < current - maxStep {
+            return current - maxStep
+        }
+        if target > current + maxStep {
+            return current + maxStep
+        }
+        return target
     }
 }

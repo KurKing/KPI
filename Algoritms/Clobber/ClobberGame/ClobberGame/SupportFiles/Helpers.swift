@@ -33,3 +33,14 @@ extension Double {
         return UIFont.systemFont(ofSize: CGFloat(self), weight: .bold)
     }
 }
+
+extension CGPoint {
+    
+    func time(to target: CGPoint) -> TimeInterval {
+        return TimeInterval(length(to: target)/Double.checkerSpeed)
+    }
+    
+    func length(to target: CGPoint) -> Double {
+        sqrt(pow(x-target.x, 2)+pow(y-target.y, 2))
+    }
+}

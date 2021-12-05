@@ -48,9 +48,7 @@ class GameEngine {
     func touchesEnded(location: CGPoint) {
         if let selectedChecker = selectedChecker,
            let nearestChecker = nearestChecker(to: location),
-           selectedChecker.gamePosition.x == nearestChecker.gamePosition.x || selectedChecker.gamePosition.y == nearestChecker.gamePosition.y,
-           selectedChecker.position.length(to: nearestChecker.viewPosition) < CGSize.checkerSize.width,
-           selectedChecker.gameColor != nearestChecker.gameColor {
+           isAbleToSwap(selectedChecker, with: nearestChecker) {
             
             selectedChecker.move(to: nearestChecker.viewPosition)
             selectedChecker.viewPosition = nearestChecker.viewPosition
@@ -83,6 +81,12 @@ extension GameEngine {
         return checkersNodes.min(by: {
             $0.viewPosition.length(to: location) < $1.viewPosition.length(to: location)
         })
+    }
+    
+    func isAbleToSwap(_ first: Checker, with second: Checker) -> Bool {
+        return (first.gamePosition.x == second.gamePosition.x || first.gamePosition.y == second.gamePosition.y)
+        && first.position.length(to: second.viewPosition) < CGSize.checkerSize.width
+        && first.gameColor != second.gameColor
     }
 }
 
@@ -118,7 +122,7 @@ extension GameEngine {
                 gamePosition.y += 1
                 gamePosition.x -= 5
             }
-             checkersNodes.append(node)
+            checkersNodes.append(node)
         }
         return checkersNodes
     }

@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import SpriteKit
+import GameplayKit
 
 func with<T>(_ object: T, setup:((T)->())) -> T {
     setup(object)
@@ -42,5 +44,14 @@ extension CGPoint {
     
     func length(to target: CGPoint) -> Double {
         sqrt(pow(x-target.x, 2)+pow(y-target.y, 2))
+    }
+}
+
+extension SKScene {
+    
+    func addChildren(_ nodes: [SKNode]) {
+        nodes.forEach {
+            addChild($0)
+        }
     }
 }

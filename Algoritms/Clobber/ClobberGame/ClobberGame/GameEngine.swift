@@ -33,9 +33,10 @@ class GameEngine {
 
 extension GameEngine {
     func touchBegan(location: CGPoint) {
-        if selectedChecker == nil {
-            selectedChecker = nearestChecker(to: location)
-            selectedChecker?.zPosition = 3
+        if selectedChecker == nil, let nearestChecker = nearestChecker(to: location), nearestChecker.isWhite {
+            selectedChecker = with(nearestChecker, setup: {
+                $0.zPosition = 3
+            })
         }
     }
     

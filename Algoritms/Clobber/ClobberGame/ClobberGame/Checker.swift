@@ -42,6 +42,10 @@ class Checker: SKSpriteNode {
         fatalError("init(coder:) has not been implemented")
     }
     
+    var isWhite: Bool {
+        gameColor == .white
+    }
+    
     func moveToSelfPosition() {
         move(to: viewPosition)
     }

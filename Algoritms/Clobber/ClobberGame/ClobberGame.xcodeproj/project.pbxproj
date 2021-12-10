@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		D26110DE275D2B98005F116B /* Checker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26110DD275D2B98005F116B /* Checker.swift */; };
 		D27C58CB275D62970029AF35 /* GameEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27C58CA275D62970029AF35 /* GameEngine.swift */; };
+		D27E702A2763FB8E00AFC958 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27E70292763FB8D00AFC958 /* Node.swift */; };
+		D27E702C2763FBA300AFC958 /* GameMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27E702B2763FBA300AFC958 /* GameMatrix.swift */; };
 		D29C3831275BC9BA00AD599C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C3830275BC9BA00AD599C /* AppDelegate.swift */; };
 		D29C3833275BC9BA00AD599C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C3832275BC9BA00AD599C /* SceneDelegate.swift */; };
 		D29C3835275BC9BA00AD599C /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C3834275BC9BA00AD599C /* GameViewController.swift */; };
@@ -23,6 +25,8 @@
 /* Begin PBXFileReference section */
 		D26110DD275D2B98005F116B /* Checker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checker.swift; sourceTree = "<group>"; };
 		D27C58CA275D62970029AF35 /* GameEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEngine.swift; sourceTree = "<group>"; };
+		D27E70292763FB8D00AFC958 /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Node.swift; path = ../../../../../../Downloads/Node.swift; sourceTree = "<group>"; };
+		D27E702B2763FBA300AFC958 /* GameMatrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameMatrix.swift; sourceTree = "<group>"; };
 		D29C382D275BC9BA00AD599C /* ClobberGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClobberGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D29C3830275BC9BA00AD599C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D29C3832275BC9BA00AD599C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,7 +73,9 @@
 				D29C3834275BC9BA00AD599C /* GameViewController.swift */,
 				D29C384F275BF8CC00AD599C /* GameScene.swift */,
 				D27C58CA275D62970029AF35 /* GameEngine.swift */,
+				D27E70292763FB8D00AFC958 /* Node.swift */,
 				D26110DD275D2B98005F116B /* Checker.swift */,
+				D27E702B2763FBA300AFC958 /* GameMatrix.swift */,
 				D29C384D275BDA5C00AD599C /* App */,
 				D29C384C275BDA4A00AD599C /* SupportFiles */,
 				D29C384E275BDA6B00AD599C /* View */,
@@ -180,8 +186,10 @@
 				D29C3850275BF8CC00AD599C /* GameScene.swift in Sources */,
 				D29C3835275BC9BA00AD599C /* GameViewController.swift in Sources */,
 				D29C3852275C029F00AD599C /* Helpers.swift in Sources */,
+				D27E702A2763FB8E00AFC958 /* Node.swift in Sources */,
 				D27C58CB275D62970029AF35 /* GameEngine.swift in Sources */,
 				D29C3854275C0FFD00AD599C /* Constants.swift in Sources */,
+				D27E702C2763FBA300AFC958 /* GameMatrix.swift in Sources */,
 				D26110DE275D2B98005F116B /* Checker.swift in Sources */,
 				D29C3831275BC9BA00AD599C /* AppDelegate.swift in Sources */,
 				D29C3833275BC9BA00AD599C /* SceneDelegate.swift in Sources */,

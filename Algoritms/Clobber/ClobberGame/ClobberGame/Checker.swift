@@ -8,6 +8,8 @@
 import SpriteKit
 import GameplayKit
 
+typealias Checkers = [Checker]
+
 enum CheckerColor: String {
     case white = "white"
     case black = "black"
@@ -52,5 +54,22 @@ class Checker: SKSpriteNode {
     
     func move(to target: CGPoint) {
         run(SKAction.move(to: target, duration: position.time(to: target)))
+    }
+}
+
+// MARK: - Checkers
+
+extension Checkers {
+    
+    var gameMatrix: GameMatrix {
+        let positions = map { (x: $0.gamePosition.x.int, y: $0.gamePosition.y.int, color: $0.gameColor) }
+        var matrix = [[0, 0, 0, 0, 0]]
+        for _ in 0..<5 {
+            matrix.append([0, 0, 0, 0, 0])
+        }
+        for i in positions {
+            matrix[i.y][i.x] = i.color == .black ? 2 : 1
+        }
+        return matrix.reversed()
     }
 }

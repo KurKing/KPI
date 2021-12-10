@@ -8,9 +8,6 @@
 import SpriteKit
 import GameplayKit
 
-typealias Checkers = [Checker]
-typealias GameMatrix = [[Int]]
-
 class GameEngine {
     
     let checkersPositions: [CGPoint]
@@ -139,42 +136,5 @@ private extension GameEngine {
         return (first.gamePosition.x == second.gamePosition.x || first.gamePosition.y == second.gamePosition.y)
         && first.position.length(to: second.viewPosition) < CGSize.checkerSize.width
         && first.gameColor != second.gameColor
-    }
-}
-
-extension Checkers {
-    
-    var gameMatrix: GameMatrix {
-        let positions = map { (x: $0.gamePosition.x.int, y: $0.gamePosition.y.int, color: $0.gameColor) }
-        var matrix = [[0, 0, 0, 0, 0]]
-        for _ in 0..<5 {
-            matrix.append([0, 0, 0, 0, 0])
-        }
-        for i in positions {
-            matrix[i.y][i.x] = i.color == .black ? 2 : 1
-        }
-        return matrix.reversed()
-    }
-}
-
-extension GameMatrix {
-    
-    var possibleWhiteSteps: Int { countPossibleSteps(for: 1) }
-    var possibleBlackSteps: Int { countPossibleSteps(for: 2) }
-    
-    var isTerminal: Bool {
-        (possibleWhiteSteps + possibleBlackSteps).isZero
-    }
-    
-    private func countPossibleSteps(for color: Int) -> Int {
-        var count = 0
-        for (y, row) in self.enumerated(){
-            for (x, value) in row.enumerated() {
-                if value == color {
-                    count += (x > 0 && self[y][x-1] != 0 && self[y][x-1] != value).int + (x < 4 && self[y][x+1] != 0 && self[y][x+1] != value).int + (y > 0 && self[y-1][x] != 0 && self[y-1][x] != value).int + (y < 5 && self[y+1][x] != 0 && self[y+1][x] != value).int
-                }
-            }
-        }
-        return count
     }
 }

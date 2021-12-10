@@ -36,6 +36,13 @@ extension Double {
     }
 }
 
+extension CGFloat {
+    
+    var int: Int {
+        Int(self)
+    }
+}
+
 extension CGPoint {
     
     func time(to target: CGPoint) -> TimeInterval {

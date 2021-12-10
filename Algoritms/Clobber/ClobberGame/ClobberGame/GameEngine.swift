@@ -8,12 +8,14 @@
 import SpriteKit
 import GameplayKit
 
+typealias Checkers = [Checker]
+
 class GameEngine {
     
     let checkersPositions: [CGPoint]
     let xStep: Int
     let yStep: Int
-    var checkersNodes = [Checker]()
+    var checkersNodes = Checkers()
     var selectedChecker: Checker? = nil
     
     init(for size: CGSize) {
@@ -60,6 +62,8 @@ extension GameEngine {
             selectedChecker.gamePosition = nearestChecker.gamePosition
             nearestChecker.removeFromParent()
             checkersNodes.removeAll(where: { $0 == nearestChecker })
+            
+            print(checkersNodes.gameMatrix)
         }
         
         selectedChecker?.moveToSelfPosition()
@@ -130,5 +134,22 @@ private extension GameEngine {
         return (first.gamePosition.x == second.gamePosition.x || first.gamePosition.y == second.gamePosition.y)
         && first.position.length(to: second.viewPosition) < CGSize.checkerSize.width
         && first.gameColor != second.gameColor
+    }
+}
+
+extension Checkers {
+    
+    var gameMatrix: [[Int]] {
+        let positions = map { (x: $0.gamePosition.x.int, y: $0.gamePosition.y.int, color: $0.gameColor) }
+        var matrix = [[0, 0, 0, 0, 0]]
+        for _ in 0..<5 {
+            matrix.append([0, 0, 0, 0, 0])
+        }
+        
+        for i in positions {
+            matrix[i.y][i.x] = i.color == .black ? 2 : 1
+        }
+                
+        return matrix.reversed()
     }
 }

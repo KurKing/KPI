@@ -1,0 +1,15 @@
+/Users/kurking/Documents/KPI/Algoritms/Knapsack/Knapsack/Knapsack/bin/Debug/net5.0/Knapsack.deps.json
+/Users/kurking/Documents/KPI/Algoritms/Knapsack/Knapsack/Knapsack/bin/Debug/net5.0/Knapsack.runtimeconfig.json
+/Users/kurking/Documents/KPI/Algoritms/Knapsack/Knapsack/Knapsack/bin/Debug/net5.0/Knapsack.runtimeconfig.dev.json
+/Users/kurking/Documents/KPI/Algoritms/Knapsack/Knapsack/Knapsack/bin/Debug/net5.0/Knapsack.dll
+/Users/kurking/Documents/KPI/Algoritms/Knapsack/Knapsack/Knapsack/bin/Debug/net5.0/ref/Knapsack.dll
+/Users/kurking/Documents/KPI/Algoritms/Knapsack/Knapsack/Knapsack/bin/Debug/net5.0/Knapsack.pdb
+/Users/kurking/Documents/KPI/Algoritms/Knapsack/Knapsack/Knapsack/obj/Debug/net5.0/Knapsack.csproj.AssemblyReference.cache
+/Users/kurking/Documents/KPI/Algoritms/Knapsack/Knapsack/Knapsack/obj/Debug/net5.0/Knapsack.GeneratedMSBuildEditorConfig.editorconfig
+/Users/kurking/Documents/KPI/Algoritms/Knapsack/Knapsack/Knapsack/obj/Debug/net5.0/Knapsack.AssemblyInfoInputs.cache
+/Users/kurking/Documents/KPI/Algoritms/Knapsack/Knapsack/Knapsack/obj/Debug/net5.0/Knapsack.AssemblyInfo.cs
+/Users/kurking/Documents/KPI/Algoritms/Knapsack/Knapsack/Knapsack/obj/Debug/net5.0/Knapsack.csproj.CoreCompileInputs.cache
+/Users/kurking/Documents/KPI/Algoritms/Knapsack/Knapsack/Knapsack/obj/Debug/net5.0/Knapsack.dll
+/Users/kurking/Documents/KPI/Algoritms/Knapsack/Knapsack/Knapsack/obj/Debug/net5.0/ref/Knapsack.dll
+/Users/kurking/Documents/KPI/Algoritms/Knapsack/Knapsack/Knapsack/obj/Debug/net5.0/Knapsack.pdb
+/Users/kurking/Documents/KPI/Algoritms/Knapsack/Knapsack/Knapsack/obj/Debug/net5.0/Knapsack.genruntimeconfig.cache

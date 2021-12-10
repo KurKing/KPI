@@ -36,6 +36,13 @@ extension Double {
     }
 }
 
+extension Bool {
+    
+    var int: Int {
+        self ? 1 : 0
+    }
+}
+
 extension CGFloat {
     
     var int: Int {

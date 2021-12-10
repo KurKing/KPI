@@ -64,7 +64,8 @@ extension GameEngine {
             nearestChecker.removeFromParent()
             checkersNodes.removeAll(where: { $0 == nearestChecker })
             
-            print(checkersNodes.gameMatrix.isTerminal)
+            let gameMatrix = checkersNodes.gameMatrix
+            print("\(gameMatrix.possibleWhiteSteps) \(gameMatrix.possibleBlackSteps)")
         }
         
         selectedChecker?.moveToSelfPosition()
@@ -158,18 +159,27 @@ extension Checkers {
 extension GameMatrix {
     
     var isTerminal: Bool {
+        return possibleWhiteSteps + possibleBlackSteps == 0
+    }
+    
+    var possibleWhiteSteps: Int {
+        countPossibleSteps(for: 1)
+    }
+    
+    var possibleBlackSteps: Int {
+        countPossibleSteps(for: 2)
+    }
+    
+    private func countPossibleSteps(for color: Int) -> Int {
+        var count = 0
         for (y, row) in self.enumerated(){
             for (x, value) in row.enumerated() {
-                if value != 0
-                    && ((x > 0 && self[y][x-1] != 0 && self[y][x-1] != value)
-                    || (x < 4 && self[y][x+1] != 0 && self[y][x+1] != value)
-                    || (y > 0 && self[y-1][x] != 0 && self[y-1][x] != value)
-                    || (y < 5 && self[y+1][x] != 0 && self[y+1][x] != value)) {
-                    return false
+                if value == color {
+                    count += (x > 0 && self[y][x-1] != 0 && self[y][x-1] != value).int + (x < 4 && self[y][x+1] != 0 && self[y][x+1] != value).int + (y > 0 && self[y-1][x] != 0 && self[y-1][x] != value).int + (y < 5 && self[y+1][x] != 0 && self[y+1][x] != value).int
+                    
                 }
             }
         }
-        
-        return true
+        return count
     }
 }

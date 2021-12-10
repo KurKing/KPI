@@ -12,7 +12,7 @@ class GameViewController: UIViewController {
     
     @IBOutlet weak var gameView: UIView!
     private var scene: GameScene!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = .title
@@ -41,7 +41,7 @@ class GameViewController: UIViewController {
             sceneView.leftAnchor.constraint(equalTo: gameView.leftAnchor),
             sceneView.rightAnchor.constraint(equalTo: gameView.rightAnchor)
         ])
-
+        
         view.layoutIfNeeded()
         
         scene = GameScene(size: sceneView.bounds.size)

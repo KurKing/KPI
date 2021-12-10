@@ -23,6 +23,10 @@ extension Int {
     public var size: CGSize {
         .init(width: .init(self), height: .init(self))
     }
+    
+    public var isZero: Bool {
+        self == 0
+    }
 }
 
 extension Double {

@@ -27,7 +27,7 @@ class Checker: SKSpriteNode {
         self.gameColor = gameColor
         self.viewPosition = viewPosition
         self.gamePosition = gamePosition
-                
+        
         let texture = SKTexture(imageNamed: "\(gameColor.rawValue)-checker")
         super.init(texture: texture, color: .clear, size: .checkerSize)
         

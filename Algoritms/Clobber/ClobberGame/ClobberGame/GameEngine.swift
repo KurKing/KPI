@@ -19,6 +19,9 @@ class GameEngine {
     var checkersNodes = Checkers()
     var selectedChecker: Checker? = nil
     
+    var å = 0
+    var ß = 0
+    
     init(for size: CGSize) {
         var checkersPositions = [CGPoint]()
         xStep = Int(size.width)/3
@@ -115,7 +118,7 @@ extension GameEngine {
 // MARK: - Utils
 
 private extension GameEngine {
-
+    
     func normalize(target: CGFloat, current: CGFloat, maxStep: CGFloat) -> CGFloat {
         if target < current - maxStep {
             return current - maxStep
@@ -147,27 +150,20 @@ extension Checkers {
         for _ in 0..<5 {
             matrix.append([0, 0, 0, 0, 0])
         }
-        
         for i in positions {
             matrix[i.y][i.x] = i.color == .black ? 2 : 1
         }
-                
         return matrix.reversed()
     }
 }
 
 extension GameMatrix {
     
+    var possibleWhiteSteps: Int { countPossibleSteps(for: 1) }
+    var possibleBlackSteps: Int { countPossibleSteps(for: 2) }
+    
     var isTerminal: Bool {
-        return possibleWhiteSteps + possibleBlackSteps == 0
-    }
-    
-    var possibleWhiteSteps: Int {
-        countPossibleSteps(for: 1)
-    }
-    
-    var possibleBlackSteps: Int {
-        countPossibleSteps(for: 2)
+        (possibleWhiteSteps + possibleBlackSteps).isZero
     }
     
     private func countPossibleSteps(for color: Int) -> Int {
@@ -176,7 +172,6 @@ extension GameMatrix {
             for (x, value) in row.enumerated() {
                 if value == color {
                     count += (x > 0 && self[y][x-1] != 0 && self[y][x-1] != value).int + (x < 4 && self[y][x+1] != 0 && self[y][x+1] != value).int + (y > 0 && self[y-1][x] != 0 && self[y-1][x] != value).int + (y < 5 && self[y+1][x] != 0 && self[y+1][x] != value).int
-                    
                 }
             }
         }

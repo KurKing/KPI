@@ -9,6 +9,7 @@ import SpriteKit
 import GameplayKit
 
 typealias Checkers = [Checker]
+typealias GameMatrix = [[Int]]
 
 class GameEngine {
     
@@ -63,7 +64,7 @@ extension GameEngine {
             nearestChecker.removeFromParent()
             checkersNodes.removeAll(where: { $0 == nearestChecker })
             
-            print(checkersNodes.gameMatrix)
+            print(checkersNodes.gameMatrix.isTerminal)
         }
         
         selectedChecker?.moveToSelfPosition()
@@ -139,7 +140,7 @@ private extension GameEngine {
 
 extension Checkers {
     
-    var gameMatrix: [[Int]] {
+    var gameMatrix: GameMatrix {
         let positions = map { (x: $0.gamePosition.x.int, y: $0.gamePosition.y.int, color: $0.gameColor) }
         var matrix = [[0, 0, 0, 0, 0]]
         for _ in 0..<5 {
@@ -151,5 +152,24 @@ extension Checkers {
         }
                 
         return matrix.reversed()
+    }
+}
+
+extension GameMatrix {
+    
+    var isTerminal: Bool {
+        for (y, row) in self.enumerated(){
+            for (x, value) in row.enumerated() {
+                if value != 0
+                    && ((x > 0 && self[y][x-1] != 0 && self[y][x-1] != value)
+                    || (x < 4 && self[y][x+1] != 0 && self[y][x+1] != value)
+                    || (y > 0 && self[y-1][x] != 0 && self[y-1][x] != value)
+                    || (y < 5 && self[y+1][x] != 0 && self[y+1][x] != value)) {
+                    return false
+                }
+            }
+        }
+        
+        return true
     }
 }

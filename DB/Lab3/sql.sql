@@ -63,7 +63,7 @@ WHERE extract(MONTH FROM date) = 12;
 -- #2
 
 -- 1
-SELECT name
+SELECT name, price, contract_id
 FROM products
 JOIN contract_cases ON products.id = contract_cases.product_id
 WHERE contract_id IN (
@@ -75,18 +75,37 @@ WHERE contract_id IN (
 SELECT products.name, products.price
 FROM contract_cases
 RIGHT JOIN products on contract_cases.product_id = products.id
-WHERE contract_cases IS NULL;
+WHERE contract_cases IS NULL
+ORDER BY name;
 -- 3
 SELECT products.name, products.price
 FROM products
 LEFT JOIN contract_cases on contract_cases.product_id = products.id
-WHERE contract_cases IS NULL;
+WHERE contract_cases IS NULL
+ORDER BY name;
 -- 4
-
+SELECT contracts.total_price,
+       shipping_company,
+       shipping_methods.price,
+       is_express,
+       contracts.total_price + shipping_methods.price
+FROM contracts
+CROSS JOIN shipping_methods
+ORDER BY contracts.id;
 -- 5
-
+SELECT products.name, products.price
+FROM products
+WHERE NOT EXISTS (
+    SELECT product_id
+    FROM contract_cases
+    WHERE products.id = contract_cases.product_id
+          )
+ORDER BY name;
 -- 6
-
+SELECT name
+FROM products
+WHERE name in ('Apple', 'Pineapple', 'Apppppple')
+ORDER BY name;
 -- 7
 
 -- 8

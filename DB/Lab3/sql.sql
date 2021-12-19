@@ -162,5 +162,16 @@ JOIN contract_cases ON contracts.id = contract_cases.contract_id
 JOIN shipping_methods ON orders.shipping_method = shipping_methods.id
 GROUP BY orders.id, clients.name, public.contracts.total_price, shipping_methods.price;
 -- 14
-
+SELECT clients.name,
+       shipping_methods.is_express as express,
+       shipping_methods.shipping_company
+FROM clients
+JOIN orders ON clients.id = orders.client
+JOIN shipping_methods ON orders.shipping_method = shipping_methods.id
+WHERE shipping_methods.is_express;
 -- 15
+SELECT shipping_methods.shipping_company, count(shipping_methods.shipping_company) as c
+FROM orders
+RIGHT JOIN shipping_methods ON orders.shipping_method = shipping_methods.id
+GROUP BY shipping_methods.shipping_company
+ORDER BY c DESC;

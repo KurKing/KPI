@@ -144,7 +144,7 @@ GROUP BY clients.name, products.name, products.price
 ORDER BY products.name;
 -- 12
 SELECT clients.name, orders.id, public.contracts.total_price,
-       public.contracts.total_price - sum(contract_cases.total_price) as profit
+       (public.contracts.total_price - sum(contract_cases.total_price)) * 0.95 as profit
 FROM clients
 JOIN orders ON clients.id = orders.client
 JOIN contracts ON orders.contracts = contracts.id

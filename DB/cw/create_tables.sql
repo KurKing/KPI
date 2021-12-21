@@ -58,7 +58,7 @@ CREATE TABLE IF NOT EXISTS reservation
 (
     id          UUID,
     start       DATE,
-    finish       DATE,
+    finish      DATE,
     table_id    UUID,
     CONSTRAINT reservation_pk PRIMARY KEY (id),
     CONSTRAINT table_fk

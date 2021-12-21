@@ -85,3 +85,53 @@ RIGHT OUTER JOIN sitting_table st on st.id = reservation.table_id
 WHERE reservation.start <= '2021-06-19' AND
       reservation.finish >= '2021-06-19'
 ORDER BY st.capacity;
+
+SELECT name, description, price, type as menu_name,
+       meal.is_available AND menu.is_available as is_available
+FROM meal
+JOIN menu on meal.menu_id = menu.id
+ORDER BY price;
+
+SELECT name, description, price, type as menu_name
+FROM meal
+JOIN menu on meal.menu_id = menu.id
+WHERE meal.is_available AND menu.is_available AND
+      description NOT LIKE '%butter%' AND
+      description NOT LIKE '%sugar%'
+ORDER BY type;
+
+SELECT waiter.name, meal.name
+FROM ordering
+JOIN waiter ON waiter.id = ordering.waiter
+JOIN order_meal om ON ordering.id = om.order_id
+JOIN meal ON meal.id = om.meal_id
+ORDER BY public.waiter.name;
+
+SELECT public.waiter.name,
+       SUM(meal.price) * 0.1 as salary
+FROM ordering
+JOIN order_meal om ON ordering.id = om.order_id
+JOIN meal ON meal.id = om.meal_id
+RIGHT OUTER JOIN waiter ON ordering.waiter = waiter.id
+GROUP BY public.waiter.name
+ORDER BY name;
+
+SELECT meal.name, COUNT(meal.name) as count
+FROM order_meal
+JOIN meal ON meal.id = order_meal.meal_id
+GROUP BY meal.name
+ORDER BY count DESC;
+
+SELECT meal.name, COUNT(meal.name) as count
+FROM order_meal
+JOIN meal ON meal.id = order_meal.meal_id
+WHERE meal.description LIKE '%sugar%'
+GROUP BY meal.name
+ORDER BY count DESC;
+
+SELECT public.client.name as "client", meal.name as "meal"
+FROM order_meal
+JOIN meal ON meal.id = order_meal.meal_id
+JOIN ordering o on o.id = order_meal.order_id
+JOIN client on o.client = client.id
+WHERE meal.description LIKE '%sugar%';

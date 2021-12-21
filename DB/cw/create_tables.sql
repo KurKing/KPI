@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS client
 CREATE TABLE IF NOT EXISTS credit_card
 (
     id          UUID,
-    number      INTEGER,
+    number      VARCHAR(16),
     date_expire DATE,
     client_id   UUID,
     CONSTRAINT card_pk PRIMARY KEY (id),
@@ -118,3 +118,31 @@ CREATE TABLE IF NOT EXISTS order_meal
         FOREIGN KEY (meal_id)
             REFERENCES meal(id)
 );
+
+CREATE UNIQUE INDEX client_unique_index ON client (
+                                                   id ASC
+    );
+CREATE UNIQUE INDEX coupon_unique_index ON coupon (
+                                                   id ASC
+    );
+CREATE UNIQUE INDEX credit_card_unique_index ON credit_card (
+                                                             id ASC
+    );
+CREATE UNIQUE INDEX meal_unique_index ON meal (
+                                               id ASC
+    );
+CREATE UNIQUE INDEX menu_unique_index ON menu (
+                                               id ASC
+    );
+CREATE UNIQUE INDEX ordering_unique_index ON ordering (
+                                                       id ASC
+    );
+CREATE UNIQUE INDEX reservation_unique_index ON reservation(
+                                                            id ASC
+    );
+CREATE UNIQUE INDEX sitting_table_unique_index ON sitting_table (
+                                                                id ASC
+    );
+CREATE UNIQUE INDEX waiter_unique_index ON waiter (
+                                                   id ASC
+    );

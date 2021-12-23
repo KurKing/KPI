@@ -53,7 +53,7 @@ extension GameMatrix {
         return children
     }
     
-    private func countPossibleSteps(for color: Int) -> Int {
+    private func countPossibleSteps(for color: Int = 2) -> Int {
         var count = 0
         for (y, row) in self.enumerated(){
             for (x, value) in row.enumerated() {
@@ -63,5 +63,22 @@ extension GameMatrix {
             }
         }
         return count
+    }
+    
+    func bestChoice() -> GameMatrix? {
+        return children.max(by: { $0.estimate() > $1.estimate() })
+    }
+    
+    private func estimate(deep: Int = 0, prevoiusEstimation: Int = 0) -> Int {
+        let countPossibleSteps = countPossibleSteps()
+        if deep > 1 || countPossibleSteps < prevoiusEstimation {
+            return countPossibleSteps
+        }
+                
+        let estimation = children.map {
+            $0.estimate(deep: deep + 1, prevoiusEstimation: countPossibleSteps)
+        }.max() ?? 0
+        
+        return estimation + countPossibleSteps
     }
 }

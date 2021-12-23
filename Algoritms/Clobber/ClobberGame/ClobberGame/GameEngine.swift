@@ -18,7 +18,7 @@ class GameEngine {
     
     var å = 0
     var ß = 0
-    
+
     init(for size: CGSize) {
         var checkersPositions = [CGPoint]()
         xStep = Int(size.width)/3
@@ -65,12 +65,61 @@ extension GameEngine {
             checkersNodes.removeAll(where: { $0 == nearestChecker })
             
             let gameMatrix = checkersNodes.gameMatrix
-            print("\(gameMatrix.possibleWhiteSteps) \(gameMatrix.possibleBlackSteps)")
+            if !gameMatrix.isTerminal {
+                let nextBestChoice = gameMatrix.bestChoice()!
+                print(nextBestChoice)
+                var changes = [(Int, Int)]()
+                for (y, row) in gameMatrix.children.randomElement()!.enumerated(){
+                    for (x, value) in row.enumerated() {
+                        if gameMatrix[y][x] != value {
+                            changes.append((y,x))
+                        }
+                    }
+                }
+                step(for: changes)
+            }
         }
         
         selectedChecker?.moveToSelfPosition()
         selectedChecker?.zPosition = 2
         selectedChecker = nil
+    }
+    
+    private func step(for changes: [(Int, Int)]) {
+        if changes.count != 2 {
+            return
+        }
+        
+        print(checkersNodes.map({ $0.gamePosition }))
+        print(changes)
+        
+        guard let firstNode = checkersNodes.first(where: {
+            $0.gamePosition == CGPoint(x: changes[0].1, y: changes[0].0)
+        }),
+        let secondNode = checkersNodes.first(where: {
+            $0.gamePosition == CGPoint(x: changes[1].1, y: changes[1].0)
+        }) else {
+            return
+        }
+        if firstNode.gameColor == .black {
+            firstNode.move(to: secondNode.position)
+            
+            firstNode.gamePosition = secondNode.gamePosition
+            firstNode.viewPosition = secondNode.viewPosition
+//            firstNode.position = secondNode.position
+            
+            secondNode.removeFromParent()
+            checkersNodes.remove(at: checkersNodes.firstIndex(of: secondNode)!)
+        } else {
+            secondNode.move(to: firstNode.position)
+            
+            secondNode.gamePosition = firstNode.gamePosition
+            secondNode.viewPosition = firstNode.viewPosition
+//            secondNode.position = firstNode.position
+            
+            firstNode.removeFromParent()
+            checkersNodes.remove(at: checkersNodes.firstIndex(of: firstNode)!)
+        }
     }
 }
 
@@ -135,6 +184,6 @@ private extension GameEngine {
     func isAbleToSwap(_ first: Checker, with second: Checker) -> Bool {
         return (first.gamePosition.x == second.gamePosition.x || first.gamePosition.y == second.gamePosition.y)
         && first.position.length(to: second.viewPosition) < CGSize.checkerSize.width
-        && first.gameColor != second.gameColor
+         && first.gameColor != second.gameColor
     }
 }

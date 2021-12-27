@@ -1,7 +1,7 @@
 CREATE TABLE IF NOT EXISTS products
 (
     id          UUID,
-    name        VARCHAR(64),
+    name        VARCHAR(64) IS NOT NULL,
     producer    VARCHAR(64),
     price       INTEGER,
     CONSTRAINT product_pk PRIMARY KEY(id)
@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS products
 CREATE TABLE IF NOT EXISTS contracts
 (
     id                  UUID,
-    total_price         INTEGER,
+    total_price         INTEGER CHECK total_price > 0,
     date                DATE,
     CONSTRAINT contract_pk  PRIMARY KEY(id)
 );

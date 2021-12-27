@@ -53,3 +53,23 @@ FROM a_table_tmp;
 COMMIT;
 
 -- 3
+CREATE OR REPLACE FUNCTION get_products_in_orders()
+    RETURNS TABLE
+            (
+                name        VARCHAR(64),
+                price       INTEGER
+            )
+    LANGUAGE plpgsql
+AS
+$$
+BEGIN
+    RETURN QUERY
+        SELECT products.name as name, products.price as price
+        FROM contract_cases
+        JOIN products on products.id = contract_cases.product_id
+        GROUP BY products.name, products.price
+        ORDER BY name;
+END;
+$$;
+
+SELECT * FROM get_products_in_orders();

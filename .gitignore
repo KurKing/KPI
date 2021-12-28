@@ -206,3 +206,5 @@ iOSInjectionProject/
 *.exe
 *.map
 *.obj
+
+.idea/

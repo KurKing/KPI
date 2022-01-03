@@ -23,25 +23,25 @@ extension GameMatrix {
         for (y, row) in self.enumerated(){
             for (x, value) in row.enumerated() {
                 if value == 2 {
-                    if x > 0 && self[y][x-1] != 0 && self[y][x-1] == 1 {
+                    if x > 0 && self[y][x-1] == 1 {
                         var newMatrix = self
                         newMatrix[y][x-1] = 2
                         newMatrix[y][x] = 0
                         children.append(newMatrix)
                     }
-                    if x < 4 && self[y][x+1] != 0 && self[y][x+1] == 1 {
+                    if x < 4 && self[y][x+1] == 1 {
                         var newMatrix = self
                         newMatrix[y][x+1] = 2
                         newMatrix[y][x] = 0
                         children.append(newMatrix)
                     }
-                    if y > 0 && self[y-1][x] != 0 && self[y-1][x] == 1 {
+                    if y > 0 && self[y-1][x] == 1 {
                         var newMatrix = self
                         newMatrix[y-1][x] = 2
                         newMatrix[y][x] = 0
                         children.append(newMatrix)
                     }
-                    if y < 5 && self[y+1][x] != 0 && self[y+1][x] == 1 {
+                    if y < 5 && self[y+1][x] == 1 {
                         var newMatrix = self
                         newMatrix[y+1][x] = 2
                         newMatrix[y][x] = 0

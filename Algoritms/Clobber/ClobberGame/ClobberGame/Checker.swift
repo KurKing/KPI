@@ -70,6 +70,6 @@ extension Checkers {
         for i in positions {
             matrix[i.y][i.x] = i.color == .black ? 2 : 1
         }
-        return matrix.reversed()
+        return matrix
     }
 }

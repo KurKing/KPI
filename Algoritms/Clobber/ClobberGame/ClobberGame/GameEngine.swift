@@ -16,9 +16,6 @@ class GameEngine {
     var checkersNodes = Checkers()
     var selectedChecker: Checker? = nil
     
-    var å = 0
-    var ß = 0
-
     init(for size: CGSize) {
         var checkersPositions = [CGPoint]()
         xStep = Int(size.width)/3
@@ -28,6 +25,12 @@ class GameEngine {
                 checkersPositions.append(CGPoint.init(x: x, y: y))
             }
         }
+        checkersPositions.sort(by: {
+            if $0.y == $1.y {
+                return $0.x < $1.x
+            }
+            return $0.y > $1.y
+        })
         self.checkersPositions = checkersPositions
     }
 }
@@ -58,25 +61,25 @@ extension GameEngine {
            let nearestChecker = nearestChecker(to: location),
            isAbleToSwap(selectedChecker, with: nearestChecker) {
             
-            selectedChecker.move(to: nearestChecker.viewPosition)
             selectedChecker.viewPosition = nearestChecker.viewPosition
             selectedChecker.gamePosition = nearestChecker.gamePosition
             nearestChecker.removeFromParent()
             checkersNodes.removeAll(where: { $0 == nearestChecker })
             
-            let gameMatrix = checkersNodes.gameMatrix
+            let gameMatrix = self.checkersNodes.gameMatrix
             if !gameMatrix.isTerminal {
-                let nextBestChoice = gameMatrix.bestChoice()!
-                print(nextBestChoice)
+                let nextMatrix = gameMatrix.bestChoice()!
                 var changes = [(Int, Int)]()
-                for (y, row) in gameMatrix.children.randomElement()!.enumerated(){
+                for (y, row) in nextMatrix.enumerated() {
                     for (x, value) in row.enumerated() {
                         if gameMatrix[y][x] != value {
-                            changes.append((y,x))
+                            changes.append((x,y))
                         }
                     }
                 }
-                step(for: changes)
+                self.step(for: changes)
+            } else {
+                fatalError("Win")
             }
         }
         
@@ -85,28 +88,25 @@ extension GameEngine {
         selectedChecker = nil
     }
     
-    private func step(for changes: [(Int, Int)]) {
+    @discardableResult
+    private func step(for changes: [(Int, Int)]) -> Bool {
         if changes.count != 2 {
-            return
+            return false
         }
         
-        print(checkersNodes.map({ $0.gamePosition }))
-        print(changes)
-        
         guard let firstNode = checkersNodes.first(where: {
-            $0.gamePosition == CGPoint(x: changes[0].1, y: changes[0].0)
-        }),
-        let secondNode = checkersNodes.first(where: {
-            $0.gamePosition == CGPoint(x: changes[1].1, y: changes[1].0)
+            $0.gamePosition == CGPoint(x: changes[0].0, y: changes[0].1)
+        }), let secondNode = checkersNodes.first(where: {
+            $0.gamePosition == CGPoint(x: changes[1].0, y: changes[1].1)
         }) else {
-            return
+            print("fail to find positions: \(changes)")
+            return false
         }
         if firstNode.gameColor == .black {
             firstNode.move(to: secondNode.position)
             
             firstNode.gamePosition = secondNode.gamePosition
             firstNode.viewPosition = secondNode.viewPosition
-//            firstNode.position = secondNode.position
             
             secondNode.removeFromParent()
             checkersNodes.remove(at: checkersNodes.firstIndex(of: secondNode)!)
@@ -115,11 +115,11 @@ extension GameEngine {
             
             secondNode.gamePosition = firstNode.gamePosition
             secondNode.viewPosition = firstNode.viewPosition
-//            secondNode.position = firstNode.position
             
             firstNode.removeFromParent()
             checkersNodes.remove(at: checkersNodes.firstIndex(of: firstNode)!)
         }
+        return true
     }
 }
 
@@ -184,6 +184,6 @@ private extension GameEngine {
     func isAbleToSwap(_ first: Checker, with second: Checker) -> Bool {
         return (first.gamePosition.x == second.gamePosition.x || first.gamePosition.y == second.gamePosition.y)
         && first.position.length(to: second.viewPosition) < CGSize.checkerSize.width
-         && first.gameColor != second.gameColor
+        && first.gameColor != second.gameColor
     }
 }

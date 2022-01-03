@@ -19,6 +19,8 @@ class GameScene: SKScene {
         scaleMode = .aspectFill
         backgroundColor = .clear
         anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(restartGame), name: .restart, object: nil)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -47,5 +49,17 @@ class GameScene: SKScene {
         if let location = touches.first?.location(in: self) {
             engine.touchesEnded(location: location)
         }
+    }
+    
+    @objc func restartGame() {
+        isPaused = true
+        removeAllChildren()
+        addChildren(engine.createDots)
+        addChildren(engine.createCheckers)
+        isPaused = false
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 }

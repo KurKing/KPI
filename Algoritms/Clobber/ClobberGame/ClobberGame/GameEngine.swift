@@ -66,7 +66,7 @@ extension GameEngine {
             nearestChecker.removeFromParent()
             checkersNodes.removeAll(where: { $0 == nearestChecker })
             
-            let gameMatrix = self.checkersNodes.gameMatrix
+            let gameMatrix = checkersNodes.gameMatrix
             if !gameMatrix.isTerminal {
                 let nextMatrix = gameMatrix.bestChoice()!
                 var changes = [(Int, Int)]()
@@ -77,9 +77,12 @@ extension GameEngine {
                         }
                     }
                 }
-                self.step(for: changes)
+                step(for: changes)
+                if checkersNodes.gameMatrix.isTerminal {
+                    NotificationCenter.default.post(name: .lose, object: nil)
+                }
             } else {
-                fatalError("Win")
+                NotificationCenter.default.post(name: .win, object: nil)
             }
         }
         

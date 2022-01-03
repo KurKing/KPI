@@ -74,4 +74,8 @@ extension SKScene {
     }
 }
 
-//extension NotificationCenter
+extension Notification.Name {
+    static let win = Notification.Name("win")
+    static let lose = Notification.Name("lose")
+    static let restart = Notification.Name("restart")
+}

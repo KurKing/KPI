@@ -13,6 +13,8 @@
 		D22C3D782788761400FCBC77 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D22C3D762788761400FCBC77 /* Main.storyboard */; };
 		D22C3D7A2788761700FCBC77 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D22C3D792788761700FCBC77 /* Assets.xcassets */; };
 		D22C3D7D2788761700FCBC77 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D22C3D7B2788761700FCBC77 /* LaunchScreen.storyboard */; };
+		D22C3D852788814E00FCBC77 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22C3D842788814E00FCBC77 /* Constants.swift */; };
+		D22C3D87278881BE00FCBC77 /* Sugar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22C3D86278881BE00FCBC77 /* Sugar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		D22C3D792788761700FCBC77 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D22C3D7C2788761700FCBC77 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D22C3D7E2788761700FCBC77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D22C3D842788814E00FCBC77 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		D22C3D86278881BE00FCBC77 /* Sugar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sugar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +63,8 @@
 				D22C3D702788761400FCBC77 /* AppDelegate.swift */,
 				D22C3D722788761400FCBC77 /* SceneDelegate.swift */,
 				D22C3D742788761400FCBC77 /* ViewController.swift */,
+				D22C3D842788814E00FCBC77 /* Constants.swift */,
+				D22C3D86278881BE00FCBC77 /* Sugar.swift */,
 				D22C3D762788761400FCBC77 /* Main.storyboard */,
 				D22C3D7B2788761700FCBC77 /* LaunchScreen.storyboard */,
 				D22C3D792788761700FCBC77 /* Assets.xcassets */,
@@ -141,6 +147,8 @@
 				D22C3D752788761400FCBC77 /* ViewController.swift in Sources */,
 				D22C3D712788761400FCBC77 /* AppDelegate.swift in Sources */,
 				D22C3D732788761400FCBC77 /* SceneDelegate.swift in Sources */,
+				D22C3D87278881BE00FCBC77 /* Sugar.swift in Sources */,
+				D22C3D852788814E00FCBC77 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,6 +300,7 @@
 				DEVELOPMENT_TEAM = CUJ73BXL42;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TabooGame/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Taboo;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -321,6 +330,7 @@
 				DEVELOPMENT_TEAM = CUJ73BXL42;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TabooGame/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Taboo;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

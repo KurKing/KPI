@@ -13,6 +13,10 @@ enum CardSuit: String {
     case D = "D"
     case H = "H"
     case S = "S"
+    
+    static var all: [CardSuit] {
+        [.C, .D, .H, .S]
+    }
 }
 
 struct Card {
@@ -21,7 +25,7 @@ struct Card {
     
     init(suit: CardSuit, name: String) {
         if !name.isCardName {
-            fatalError("Impossible card name")
+            fatalError("Impossible card name: \(name)")
         }
         
         self.suit = suit

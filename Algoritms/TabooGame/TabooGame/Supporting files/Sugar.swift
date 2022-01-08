@@ -41,6 +41,8 @@ extension String {
     }
     
     var isCardName: Bool {
-        self.count == 1 && "2 3 4 5 6 7 8 9 10 A J K Q".split(separator: " ").contains(where: { $0 == self })
+        return cardsNames
+            .split(separator: " ")
+            .contains(where: { $0 == self })
     }
 }

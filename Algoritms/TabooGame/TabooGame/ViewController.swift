@@ -30,6 +30,11 @@ class ViewController: UIViewController {
         cardImageViews.forEach {
             $0.image = Card(suit: .D, name: "Q").image
         }
+        
+        let deck = Deck()
+        for card in deck.cards {
+            print("\(card.name)\(card.suit.rawValue) - \(card.price)")
+        }
     }
     
     @IBAction func nextCardButtonPressed() {

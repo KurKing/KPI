@@ -7,6 +7,8 @@
 
 import UIKit
 
+let cardsNames = "2 3 4 5 6 7 8 9 10 A J K Q"
+
 extension UIColor {
 
     static var fruitSalad: UIColor { 0x42944b.hexColor }

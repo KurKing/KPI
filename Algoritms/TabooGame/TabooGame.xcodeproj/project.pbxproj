@@ -60,17 +60,33 @@
 		D22C3D6F2788761400FCBC77 /* TabooGame */ = {
 			isa = PBXGroup;
 			children = (
-				D22C3D702788761400FCBC77 /* AppDelegate.swift */,
-				D22C3D722788761400FCBC77 /* SceneDelegate.swift */,
+				D22C3D8927888A9B00FCBC77 /* App */,
 				D22C3D742788761400FCBC77 /* ViewController.swift */,
-				D22C3D842788814E00FCBC77 /* Constants.swift */,
-				D22C3D86278881BE00FCBC77 /* Sugar.swift */,
+				D22C3D8827888A7B00FCBC77 /* Supporting files */,
 				D22C3D762788761400FCBC77 /* Main.storyboard */,
 				D22C3D7B2788761700FCBC77 /* LaunchScreen.storyboard */,
-				D22C3D792788761700FCBC77 /* Assets.xcassets */,
 				D22C3D7E2788761700FCBC77 /* Info.plist */,
 			);
 			path = TabooGame;
+			sourceTree = "<group>";
+		};
+		D22C3D8827888A7B00FCBC77 /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				D22C3D842788814E00FCBC77 /* Constants.swift */,
+				D22C3D86278881BE00FCBC77 /* Sugar.swift */,
+				D22C3D792788761700FCBC77 /* Assets.xcassets */,
+			);
+			path = "Supporting files";
+			sourceTree = "<group>";
+		};
+		D22C3D8927888A9B00FCBC77 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				D22C3D702788761400FCBC77 /* AppDelegate.swift */,
+				D22C3D722788761400FCBC77 /* SceneDelegate.swift */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

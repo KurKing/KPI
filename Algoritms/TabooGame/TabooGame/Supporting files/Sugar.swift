@@ -29,3 +29,14 @@ extension Double {
         return UIFont.systemFont(ofSize: CGFloat(self), weight: .bold)
     }
 }
+
+extension String {
+    
+    var image: UIImage? {
+        return UIImage(named: self)
+    }
+    
+    var systemImage: UIImage? {
+        return UIImage(systemName: self)
+    }
+}

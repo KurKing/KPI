@@ -8,12 +8,36 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    @IBOutlet weak var playerCardImageView: UIImageView!
+    
+    @IBOutlet weak var firstCardImageView: UIImageView!
+    @IBOutlet weak var secondCardImageView: UIImageView!
+    @IBOutlet weak var thirdCardImageView: UIImageView!
+    @IBOutlet weak var forthCardImageView: UIImageView!
+    
+    @IBOutlet weak var stepButton: UIButton!
+    @IBOutlet weak var nextCardButton: UIButton!
+    
+    var cardImageViews: [UIImageView] {
+        [firstCardImageView, secondCardImageView,
+         thirdCardImageView, forthCardImageView]
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        cardImageViews.forEach {
+            $0.image = nil
+        }
     }
-
-
+    
+    @IBAction func nextCardButtonPressed() {
+        print("nextCardButtonPressed")
+    }
+    
+    @IBAction func stepButtonPressed(_ sender: Any) {
+        print("stepButtonPressed")
+    }
+    
 }
-

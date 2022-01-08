@@ -28,7 +28,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         cardImageViews.forEach {
-            $0.image = nil
+            $0.image = Card(suit: .D, name: "Q").image
         }
     }
     

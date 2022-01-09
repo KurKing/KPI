@@ -24,25 +24,27 @@ class ViewController: UIViewController {
          thirdCardImageView, forthCardImageView]
     }
     
+    let deck = Deck()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        cardImageViews.forEach {
-            $0.image = Card(suit: .D, name: "Q").image
-        }
+        playerCardImageView.image = deck.player[0].image
         
-        let deck = Deck()
-        for card in deck.cards {
-            print("\(card.name)\(card.suit.rawValue) - \(card.price)")
+        for (index, imageView) in cardImageViews.enumerated() {
+            imageView.image = deck.currentTable[index].image
         }
+    }
+    
+    private func setRandomCardTo(imageView: UIImageView) {
+        imageView.image = deck.reserv.randomElement()!.image
     }
     
     @IBAction func nextCardButtonPressed() {
-        print("nextCardButtonPressed")
+        playerCardImageView.image = deck.nextPlayerCard.image
     }
     
     @IBAction func stepButtonPressed(_ sender: Any) {
-        print("stepButtonPressed")
     }
     
 }

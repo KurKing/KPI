@@ -48,4 +48,8 @@ struct Card {
     var image: UIImage? {
         "\(name)\(suit.rawValue)".image
     }
+    
+    var isJ: Bool {
+        name == "J"
+    }
 }

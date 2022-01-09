@@ -12,6 +12,8 @@ class Deck {
     var reserv = [Card]()
     var player = [Card]()
     var currentTable = [Card]()
+    var playerScore = 0
+    var opponentScore = 0
     
     weak var delegate: ViewController?
     
@@ -44,7 +46,7 @@ class Deck {
     }
     
     func placeCardsOnTable() {
-        while currentTable.count < 4 {
+        while currentTable.count < 4 && !reserv.isEmpty {
             let nextCard = reserv.remove(at: 0)
             if !nextCard.isJ {
                 currentTable.append(nextCard)
@@ -63,15 +65,24 @@ class Deck {
             }
         }
         
-        if match || player[selectedPayerCardIndex].isJ {
+        if player.isEmpty {
+            delegate?.showGameOverAlert(playerScore: playerScore, opponentScore: opponentScore)
+        }
+        
+        if match || player.contains(where: { $0.isJ }) {
             playerStep()
         } else {
             player.append(reserv.remove(at: 0))
+            delegate?.showNewCardAlert(with: player[player.count-1].displayName)
             reserv.shuffle()
         }
         
         selectedPayerCardIndex = -1
         delegate?.updatePlayerCard()
+        
+        if reserv.isEmpty || player.isEmpty {
+            delegate?.showGameOverAlert(playerScore: playerScore, opponentScore: opponentScore)
+        }
     }
     
     private func playerStep() {
@@ -80,8 +91,15 @@ class Deck {
         
         if currentCard.isJ {
             match = true
+            playerScore += currentTable
+                .map({ $0.price })
+                .reduce(0, +)
             currentTable.removeAll()
         } else {
+            playerScore += currentTable
+                .filter({ $0.name == currentCard.name })
+                .map({ $0.price })
+                .reduce(0, +)
             currentTable.removeAll(where: {
                 $0.name == currentCard.name
             })

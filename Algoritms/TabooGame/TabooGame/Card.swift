@@ -7,7 +7,6 @@
 
 import UIKit
 
-// ♥️ - H, ♠️, S, ♦️ - D, ♣️ - C
 enum CardSuit: String {
     case C = "C"
     case D = "D"
@@ -16,6 +15,19 @@ enum CardSuit: String {
     
     static var all: [CardSuit] {
         [.C, .D, .H, .S]
+    }
+    
+    var emoji: String {
+        switch self {
+        case .C:
+            return "♣️"
+        case .D:
+            return "♦️"
+        case .H:
+            return "♥️"
+        case .S:
+            return "♠️"
+        }
     }
 }
 
@@ -45,11 +57,8 @@ struct Card {
         }
     }
     
-    var image: UIImage? {
-        "\(name)\(suit.rawValue)".image
-    }
-    
-    var isJ: Bool {
-        name == "J"
-    }
+    var fullName: String { "\(name)\(suit.rawValue)" }
+    var displayName: String { "\(name)\(suit.emoji)" }
+    var image: UIImage? { fullName.image }
+    var isJ: Bool { name == "J" }
 }

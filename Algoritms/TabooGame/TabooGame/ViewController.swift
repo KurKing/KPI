@@ -19,21 +19,20 @@ class ViewController: UIViewController {
     @IBOutlet weak var stepButton: UIButton!
     @IBOutlet weak var nextCardButton: UIButton!
     
+    private(set) var deck: Deck!
+
     var cardImageViews: [UIImageView] {
         [firstCardImageView, secondCardImageView,
          thirdCardImageView, forthCardImageView]
     }
     
-    let deck = Deck()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        deck = Deck(delegate: self)
         playerCardImageView.image = deck.player[0].image
         
-        for (index, imageView) in cardImageViews.enumerated() {
-            imageView.image = deck.currentTable[index].image
-        }
+        deck.placeCardsOnTable()
     }
     
     private func setRandomCardTo(imageView: UIImageView) {
@@ -45,6 +44,16 @@ class ViewController: UIViewController {
     }
     
     @IBAction func stepButtonPressed(_ sender: Any) {
+        deck.step()
     }
     
+    func refreshTable() {
+        for (index, imageView) in cardImageViews.enumerated() {
+            imageView.image = deck.currentTable[index].image
+        }
+    }
+    
+    func updatePlayerCard() {
+        playerCardImageView.image = deck.nextPlayerCard.image
+    }
 }

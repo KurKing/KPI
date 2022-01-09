@@ -61,4 +61,11 @@ struct Card {
     var displayName: String { "\(name)\(suit.emoji)" }
     var image: UIImage? { fullName.image }
     var isJ: Bool { name == "J" }
+    
+    func price(for table: [Card]) -> Int {
+        if isJ {
+            return table.map({ $0.price }).reduce(0, +)
+        }
+        return price
+    }
 }

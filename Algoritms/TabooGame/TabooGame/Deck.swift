@@ -123,6 +123,9 @@ class Deck {
         
         if match {
             player.remove(at: selectedPayerCardIndex)
+            if reserv.isEmpty || player.isEmpty {
+                delegate?.showGameOverAlert(playerScore: playerScore, opponentScore: opponentScore)
+            }
             placeCardsOnTable()
             selectedPayerCardIndex = -1
             delegate?.updatePlayerCard()
@@ -144,7 +147,7 @@ class Deck {
             return
         }
         
-        let selectedCard = potentialSteps.randomElement()!
+        let selectedCard = potentialSteps.max(by: { $0.price(for: currentTable) > $1.price(for: currentTable)})!
         
         if selectedCard.isJ {
             opponentPreScore += currentTable

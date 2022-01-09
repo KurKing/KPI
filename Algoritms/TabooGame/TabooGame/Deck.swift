@@ -11,9 +11,18 @@ class Deck {
     
     var reserv = [Card]()
     var player = [Card]()
+    var opponent = [Card]()
     var currentTable = [Card]()
-    var playerScore = 0
-    var opponentScore = 0
+    var playerPreScore = 0
+    var opponentPreScore = 0
+    
+    var playerScore: Int {
+        playerPreScore - player.map({ $0.price }).reduce(0, +)
+    }
+    
+    var opponentScore: Int {
+        opponentPreScore - opponent.map({ $0.price }).reduce(0, +)
+    }
     
     weak var delegate: ViewController?
     
@@ -22,17 +31,21 @@ class Deck {
     init(delegate: ViewController) {
         self.delegate = delegate
         
-        for name in cardsNames.split(separator: " ") {
-            for suit in CardSuit.all {
+        for suit in CardSuit.all {
+            for name in cardsNames.split(separator: " ") {
                 reserv.append(Card(suit: suit, name: "\(name)"))
             }
         }
-        for _ in 0...10 {
+        for _ in 0..<10 {
             reserv.shuffle()
         }
         
         for _ in 0..<5 {
             player.append(reserv.remove(at: 0))
+        }
+        
+        for _ in 0..<5 {
+            opponent.append(reserv.remove(at: 0))
         }
     }
     
@@ -83,6 +96,8 @@ class Deck {
         if reserv.isEmpty || player.isEmpty {
             delegate?.showGameOverAlert(playerScore: playerScore, opponentScore: opponentScore)
         }
+        
+        opponentStep()
     }
     
     private func playerStep() {
@@ -91,12 +106,12 @@ class Deck {
         
         if currentCard.isJ {
             match = true
-            playerScore += currentTable
+            playerPreScore += currentTable
                 .map({ $0.price })
                 .reduce(0, +)
             currentTable.removeAll()
         } else {
-            playerScore += currentTable
+            playerPreScore += currentTable
                 .filter({ $0.name == currentCard.name })
                 .map({ $0.price })
                 .reduce(0, +)
@@ -112,5 +127,48 @@ class Deck {
             selectedPayerCardIndex = -1
             delegate?.updatePlayerCard()
         }
+    }
+    
+    private func opponentStep() {
+        let potentialSteps = opponent.filter({ card in
+            card.isJ || currentTable.contains(where: { card.name == $0.name })
+        })
+        
+        if potentialSteps.isEmpty {
+            if reserv.isEmpty {
+                delegate?.showGameOverAlert(playerScore: playerScore, opponentScore: opponentScore)
+            } else {
+                opponent.append(reserv.remove(at: 0))
+                delegate?.showOpponentStepAlert(with: "+1 card")
+            }
+            return
+        }
+        
+        let selectedCard = potentialSteps.randomElement()!
+        
+        if selectedCard.isJ {
+            opponentPreScore += currentTable
+                .map({ $0.price })
+                .reduce(0, +)
+            currentTable.removeAll()
+        } else {
+            opponentPreScore += currentTable
+                .filter({ $0.name == selectedCard.name })
+                .map({ $0.price })
+                .reduce(0, +)
+            currentTable.removeAll(where: {
+                $0.name == selectedCard.name
+            })
+        }
+
+        opponent.removeAll(where: { $0.name == selectedCard.name && $0.suit == selectedCard.suit })
+        
+        if reserv.isEmpty || opponent.isEmpty {
+            delegate?.showGameOverAlert(playerScore: playerScore, opponentScore: opponentScore)
+            return
+        }
+        
+        placeCardsOnTable()
+        delegate?.showOpponentStepAlert(with: selectedCard.displayName)
     }
 }

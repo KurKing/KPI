@@ -67,6 +67,12 @@ class ViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
+    func showOpponentStepAlert(with name: String) {
+        let alert = UIAlertController(title: "Opponent step:", message: "\(name)", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
+    
     func showGameOverAlert(playerScore: Int, opponentScore: Int) {
         let alert = UIAlertController(
             title: playerScore > opponentScore ? "You win" : "You lose",

@@ -78,7 +78,7 @@ class Deck {
             }
         }
         
-        if player.isEmpty {
+        if player.isEmpty || reserv.isEmpty {
             delegate?.showGameOverAlert(playerScore: playerScore, opponentScore: opponentScore)
         }
         

@@ -1,0 +1,401 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D22C3D712788761400FCBC77 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22C3D702788761400FCBC77 /* AppDelegate.swift */; };
+		D22C3D732788761400FCBC77 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22C3D722788761400FCBC77 /* SceneDelegate.swift */; };
+		D22C3D752788761400FCBC77 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22C3D742788761400FCBC77 /* ViewController.swift */; };
+		D22C3D782788761400FCBC77 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D22C3D762788761400FCBC77 /* Main.storyboard */; };
+		D22C3D7A2788761700FCBC77 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D22C3D792788761700FCBC77 /* Assets.xcassets */; };
+		D22C3D7D2788761700FCBC77 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D22C3D7B2788761700FCBC77 /* LaunchScreen.storyboard */; };
+		D22C3D852788814E00FCBC77 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22C3D842788814E00FCBC77 /* Constants.swift */; };
+		D22C3D87278881BE00FCBC77 /* Sugar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22C3D86278881BE00FCBC77 /* Sugar.swift */; };
+		D22C3D8B278A12F900FCBC77 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22C3D8A278A12F900FCBC77 /* Card.swift */; };
+		D22C3D8D278A29BB00FCBC77 /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22C3D8C278A29BB00FCBC77 /* Deck.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		D22C3D6D2788761400FCBC77 /* TabooGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TabooGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D22C3D702788761400FCBC77 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D22C3D722788761400FCBC77 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		D22C3D742788761400FCBC77 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D22C3D772788761400FCBC77 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D22C3D792788761700FCBC77 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D22C3D7C2788761700FCBC77 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D22C3D7E2788761700FCBC77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D22C3D842788814E00FCBC77 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		D22C3D86278881BE00FCBC77 /* Sugar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sugar.swift; sourceTree = "<group>"; };
+		D22C3D8A278A12F900FCBC77 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		D22C3D8C278A29BB00FCBC77 /* Deck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D22C3D6A2788761400FCBC77 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D22C3D642788761400FCBC77 = {
+			isa = PBXGroup;
+			children = (
+				D22C3D6F2788761400FCBC77 /* TabooGame */,
+				D22C3D6E2788761400FCBC77 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D22C3D6E2788761400FCBC77 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D22C3D6D2788761400FCBC77 /* TabooGame.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D22C3D6F2788761400FCBC77 /* TabooGame */ = {
+			isa = PBXGroup;
+			children = (
+				D22C3D742788761400FCBC77 /* ViewController.swift */,
+				D22C3D8A278A12F900FCBC77 /* Card.swift */,
+				D22C3D8C278A29BB00FCBC77 /* Deck.swift */,
+				D22C3D8927888A9B00FCBC77 /* App */,
+				D22C3D8827888A7B00FCBC77 /* Supporting files */,
+				D22C3D762788761400FCBC77 /* Main.storyboard */,
+				D22C3D7B2788761700FCBC77 /* LaunchScreen.storyboard */,
+				D22C3D7E2788761700FCBC77 /* Info.plist */,
+			);
+			path = TabooGame;
+			sourceTree = "<group>";
+		};
+		D22C3D8827888A7B00FCBC77 /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				D22C3D842788814E00FCBC77 /* Constants.swift */,
+				D22C3D86278881BE00FCBC77 /* Sugar.swift */,
+				D22C3D792788761700FCBC77 /* Assets.xcassets */,
+			);
+			path = "Supporting files";
+			sourceTree = "<group>";
+		};
+		D22C3D8927888A9B00FCBC77 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				D22C3D702788761400FCBC77 /* AppDelegate.swift */,
+				D22C3D722788761400FCBC77 /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D22C3D6C2788761400FCBC77 /* TabooGame */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D22C3D812788761700FCBC77 /* Build configuration list for PBXNativeTarget "TabooGame" */;
+			buildPhases = (
+				D22C3D692788761400FCBC77 /* Sources */,
+				D22C3D6A2788761400FCBC77 /* Frameworks */,
+				D22C3D6B2788761400FCBC77 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TabooGame;
+			productName = TabooGame;
+			productReference = D22C3D6D2788761400FCBC77 /* TabooGame.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D22C3D652788761400FCBC77 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1310;
+				LastUpgradeCheck = 1310;
+				TargetAttributes = {
+					D22C3D6C2788761400FCBC77 = {
+						CreatedOnToolsVersion = 13.1;
+					};
+				};
+			};
+			buildConfigurationList = D22C3D682788761400FCBC77 /* Build configuration list for PBXProject "TabooGame" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D22C3D642788761400FCBC77;
+			productRefGroup = D22C3D6E2788761400FCBC77 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D22C3D6C2788761400FCBC77 /* TabooGame */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D22C3D6B2788761400FCBC77 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D22C3D7D2788761700FCBC77 /* LaunchScreen.storyboard in Resources */,
+				D22C3D7A2788761700FCBC77 /* Assets.xcassets in Resources */,
+				D22C3D782788761400FCBC77 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D22C3D692788761400FCBC77 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D22C3D8D278A29BB00FCBC77 /* Deck.swift in Sources */,
+				D22C3D752788761400FCBC77 /* ViewController.swift in Sources */,
+				D22C3D8B278A12F900FCBC77 /* Card.swift in Sources */,
+				D22C3D712788761400FCBC77 /* AppDelegate.swift in Sources */,
+				D22C3D732788761400FCBC77 /* SceneDelegate.swift in Sources */,
+				D22C3D87278881BE00FCBC77 /* Sugar.swift in Sources */,
+				D22C3D852788814E00FCBC77 /* Constants.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		D22C3D762788761400FCBC77 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D22C3D772788761400FCBC77 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D22C3D7B2788761700FCBC77 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D22C3D7C2788761700FCBC77 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D22C3D7F2788761700FCBC77 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D22C3D802788761700FCBC77 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D22C3D822788761700FCBC77 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CUJ73BXL42;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TabooGame/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Taboo;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = kurking.TabooGame;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		D22C3D832788761700FCBC77 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CUJ73BXL42;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TabooGame/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Taboo;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = kurking.TabooGame;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D22C3D682788761400FCBC77 /* Build configuration list for PBXProject "TabooGame" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D22C3D7F2788761700FCBC77 /* Debug */,
+				D22C3D802788761700FCBC77 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D22C3D812788761700FCBC77 /* Build configuration list for PBXNativeTarget "TabooGame" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D22C3D822788761700FCBC77 /* Debug */,
+				D22C3D832788761700FCBC77 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D22C3D652788761400FCBC77 /* Project object */;
+}

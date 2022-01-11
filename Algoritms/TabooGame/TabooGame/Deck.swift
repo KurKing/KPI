@@ -80,6 +80,7 @@ class Deck {
         
         if player.isEmpty || reserv.isEmpty {
             delegate?.showGameOverAlert(playerScore: playerScore, opponentScore: opponentScore)
+            return
         }
         
         if match || player.contains(where: { $0.isJ }) {
@@ -95,6 +96,7 @@ class Deck {
         
         if reserv.isEmpty || player.isEmpty {
             delegate?.showGameOverAlert(playerScore: playerScore, opponentScore: opponentScore)
+            return
         }
         
         opponentStep()
@@ -125,6 +127,7 @@ class Deck {
             player.remove(at: selectedPayerCardIndex)
             if reserv.isEmpty || player.isEmpty {
                 delegate?.showGameOverAlert(playerScore: playerScore, opponentScore: opponentScore)
+                return
             }
             placeCardsOnTable()
             selectedPayerCardIndex = -1
